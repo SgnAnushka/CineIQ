@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/singh/Desktop/CINEIQ/mlruns/428839395302224311/b25966a288594f968d9d9f2a91fa602a/artifacts
+end_time: 1776849545897
+entry_point_name: ''
+experiment_id: '428839395302224311'
+lifecycle_stage: active
+run_id: b25966a288594f968d9d9f2a91fa602a
+run_name: tasteful-bat-137
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1776849543651
+status: 4
+tags: []
+user_id: singh

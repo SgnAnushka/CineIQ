@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/singh/Desktop/CINEIQ/mlruns/428839395302224311/09bd03228a884971845044de034d7392/artifacts
+end_time: 1776850551906
+entry_point_name: ''
+experiment_id: '428839395302224311'
+lifecycle_stage: active
+run_id: 09bd03228a884971845044de034d7392
+run_name: selective-smelt-367
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1776850549296
+status: 3
+tags: []
+user_id: singh

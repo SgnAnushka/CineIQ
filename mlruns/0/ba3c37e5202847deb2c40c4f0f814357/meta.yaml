@@ -1,0 +1,14 @@
+artifact_uri: file:C:/Users/singh/Desktop/CINEIQ/mlruns/0/ba3c37e5202847deb2c40c4f0f814357/artifacts
+end_time: 1776846524565
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ba3c37e5202847deb2c40c4f0f814357
+run_name: hilarious-cub-109
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1776846524485
+status: 3
+tags: []
+user_id: singh

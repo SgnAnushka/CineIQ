@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/singh/Desktop/CINEIQ/mlruns/428839395302224311/aa6a97457e7a4437966f7b375ca6bd04/artifacts
+end_time: 1776849637247
+entry_point_name: ''
+experiment_id: '428839395302224311'
+lifecycle_stage: active
+run_id: aa6a97457e7a4437966f7b375ca6bd04
+run_name: zealous-mole-243
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1776849635184
+status: 3
+tags: []
+user_id: singh
