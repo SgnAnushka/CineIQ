@@ -10,10 +10,17 @@ st.set_page_config(page_title="CINEIQ 🎬", layout="wide")
 st.title("🎬 CINEIQ - Smart Movie Recommender")
 
 # -----------------------
+<<<<<<< HEAD
 # LOAD DATA (optional)
 # -----------------------
 try:
     movies = pd.read_csv("data/movies_clean.csv")
+=======
+# LOAD DATA
+# -----------------------
+try:
+    movies = pd.read_csv("../data/movies_clean.csv")
+>>>>>>> 56798298665e07049fb04fbe19c23ec8e8c45e87
 except:
     movies = pd.DataFrame()
 
@@ -33,17 +40,26 @@ if st.button("Get Recommendations 🚀"):
 
         if response.status_code != 200:
             st.error("❌ API Error")
+<<<<<<< HEAD
 
+=======
+>>>>>>> 56798298665e07049fb04fbe19c23ec8e8c45e87
         else:
             data = response.json()
 
             if "error" in data:
                 st.error(data["error"])
+<<<<<<< HEAD
 
             else:
                 st.markdown("## 🎯 Recommended Movies")
 
                 # -------- MOVIE LIST --------
+=======
+            else:
+                st.markdown("## 🎯 Recommended Movies")
+
+>>>>>>> 56798298665e07049fb04fbe19c23ec8e8c45e87
                 for movie in data["recommendations"]:
 
                     st.markdown("---")
@@ -52,7 +68,11 @@ if st.button("Get Recommendations 🚀"):
                     st.subheader(f"🎥 {movie['movie']}")
 
                     # ⭐ Score
+<<<<<<< HEAD
                     score = float(movie["score"])
+=======
+                    score = movie["score"]
+>>>>>>> 56798298665e07049fb04fbe19c23ec8e8c45e87
                     st.markdown(f"⭐ **Score:** {score:.2f}")
 
                     # 📊 Progress bar
@@ -72,6 +92,7 @@ if st.button("Get Recommendations 🚀"):
                         st.markdown(f"👉 {r}")
 
                 # ========================
+<<<<<<< HEAD
                 # 📊 ANALYTICS SECTION
                 # ========================
                 st.markdown("## 📊 Insights")
@@ -92,6 +113,44 @@ if st.button("Get Recommendations 🚀"):
                   )
 
                     st.plotly_chart(fig1, use_container_width=True)
+=======
+                # 📊 ANALYTICS
+                # ========================
+                st.markdown("## 📊 Insights")
+
+                scores = [m["score"] for m in data["recommendations"]]
+
+                fig1 = px.histogram(
+                    scores,
+                    nbins=10,
+                    title="Score Distribution"
+                )
+                st.plotly_chart(fig1, use_container_width=True)
+
+                # ---- GENRES ----
+                if not movies.empty and "genres" in movies.columns:
+
+                    movie_titles = [m["movie"] for m in data["recommendations"]]
+                    subset = movies[movies["title"].isin(movie_titles)]
+
+                    all_genres = []
+                    for g in subset["genres"]:
+                        if isinstance(g, str):
+                            all_genres.extend(g.split("|"))
+
+                    if all_genres:
+                        genre_df = pd.DataFrame(all_genres, columns=["genre"])
+                        genre_counts = genre_df["genre"].value_counts().reset_index()
+                        genre_counts.columns = ["genre", "count"]
+
+                        fig2 = px.bar(
+                            genre_counts,
+                            x="genre",
+                            y="count",
+                            title="Top Genres"
+                        )
+                        st.plotly_chart(fig2, use_container_width=True)
+>>>>>>> 56798298665e07049fb04fbe19c23ec8e8c45e87
 
     except Exception as e:
         st.error(f"Something went wrong: {e}")

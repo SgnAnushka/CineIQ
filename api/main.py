@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 import joblib
 
 model = joblib.load("models/svd_model.pkl")
 
+=======
+>>>>>>> 56798298665e07049fb04fbe19c23ec8e8c45e87
 from fastapi import FastAPI
 import joblib
 import pandas as pd
@@ -13,6 +16,7 @@ app = FastAPI()
 # LOAD MODELS & DATA
 # =======================
 
+<<<<<<< HEAD
 # svd = joblib.load("../models/svd.pkl")
 model = joblib.load("models/svd_model.pkl")  # already correct ✅
 
@@ -21,12 +25,23 @@ indices = joblib.load("models/indices.pkl")             # ✅ FIXED
 
 movies = pd.read_csv("data/movies_clean.csv")           # ✅ FIXED
 
+=======
+svd = joblib.load("../models/svd.pkl")
+tfidf_matrix = joblib.load("../models/tfidf_matrix.pkl")
+indices = joblib.load("../models/indices.pkl")  # movieId → index
+
+movies = pd.read_csv("../data/movies_clean.csv")
+>>>>>>> 56798298665e07049fb04fbe19c23ec8e8c45e87
 
 # ensure correct column name
 if 'title' not in movies.columns:
     title_col = [c for c in movies.columns if 'title' in c.lower()][0]
     movies.rename(columns={title_col: 'title'}, inplace=True)
+<<<<<<< HEAD
 data = pd.read_csv("data/processed_data.csv") 
+=======
+data = pd.read_csv("../data/processed_data.csv")
+>>>>>>> 56798298665e07049fb04fbe19c23ec8e8c45e87
 
 # =======================
 # NORMALIZATION
@@ -172,8 +187,13 @@ def hybrid_recommend(user_id):
     # ---- SVD ----
     svd_scores = {}
     for movie_id in movie_ids[:500]:
+<<<<<<< HEAD
         svd_score = model.predict(user_id, movie_id).est
         svd_scores[movie_id] = svd_score
+=======
+        pred = svd.predict(user_id, movie_id)
+        svd_scores[movie_id] = pred.est
+>>>>>>> 56798298665e07049fb04fbe19c23ec8e8c45e87
 
     # ---- USER LIKES ----
     user_likes = get_user_likes(user_id)
@@ -219,6 +239,10 @@ def hybrid_recommend(user_id):
 
     return results
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 56798298665e07049fb04fbe19c23ec8e8c45e87
 # =======================
 # ROUTES
 # =======================
